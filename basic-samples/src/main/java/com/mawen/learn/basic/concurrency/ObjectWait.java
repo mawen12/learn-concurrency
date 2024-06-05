@@ -25,6 +25,10 @@ public class ObjectWait {
 		this.wait();
 	}
 
+	public synchronized void waitTimeForObject() throws InterruptedException {
+		this.wait(-1);
+	}
+
 	public void notifyAllObject() {
 		this.notifyAll();
 	}
@@ -56,7 +60,14 @@ public class ObjectWait {
 //				}
 //				objectWait.notifyAllObject();
 
-				objectWait.safeNotifyALl();
+				try {
+					objectWait.waitTimeForObject();
+				}
+				catch (InterruptedException e) {
+					throw new RuntimeException(e);
+				}
+
+//				objectWait.safeNotifyALl();
 			}
 		}).start();
 	}
