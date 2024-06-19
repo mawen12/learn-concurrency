@@ -16,6 +16,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>advanced-samples</name>
+    <modules>
+        <module>mysql-concurrent-update</module>
+    </modules>
     <packaging>pom</packaging>
 
 </project>
